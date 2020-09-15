@@ -1,0 +1,53 @@
+<div class="reported-container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Reported Questions
+                </mat-panel-title>
+                <mat-panel-description>
+                    Expand to check (Total: {{questions.length}})
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngFor='let question of questions'>
+                <p><strong>Questions: </strong>{{question.question}}</p>
+                <mat-divider></mat-divider>
+
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Reported Answers&nbsp;&nbsp;
+                </mat-panel-title>
+                <mat-panel-description>
+                    Expand to check (Total: {{answers.length}})
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngFor='let answer of answers'>
+                <p>
+                    <strong>Question: </strong>{{answer.question.question}} <br>
+                    <strong>Answer: </strong>{{answer.answer}}
+                </p>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Reported Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </mat-panel-title>
+                <mat-panel-description>
+                    Expand to check (Total: {{users.length}})
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngFor='let user of users'>
+                <p>
+                    {{user.name}}<br>
+                    <strong>@{{user.username}}</strong>
+                </p>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

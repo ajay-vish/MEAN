@@ -1,0 +1,49 @@
+<div class="chat-container">
+    <div class="row">
+        <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+        <div>
+            <h1 class = "username">{{data.name}}</h1>
+            <p class = "isOnline"><span class="dot"></span> Online</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div #scrollMe class="message-container"  id = "message-container">
+        <div></div>
+        <div>
+            <div *ngFor="let message of messageArray;let i=index">
+                <div class="row" *ngIf=" !i || ( message.created_at | date: 'shortDate') !== (messageArray[i-1].created_at | date: 'shortDate' ) ">
+                    <p class = "date"> {{ message.created_at | date: 'EEEE, dd LLLL' }} </p>
+                </div>
+                <div class="row" *ngIf='message.message'>
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <div (click)="onClick(i)" [ngClass]="currentUser.username == message.user ? 'receiver': 'sender'">{{message.message}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" [hidden]="!hideme[i]">
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <div [ngClass]="currentUser.username == message.user ? 'receiver-timestamp': 'sender-timestamp'">
+                                <p>{{message.created_at | date : 'hh:mm:ss a'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p *ngIf="isTyping" class = "isTyping">typing...</p>
+        </div>
+    </div>
+    <div class="input-field">
+        <mat-form-field>
+            <mat-label>Type...</mat-label>
+            <input (keypress)="typing()" [(ngModel)]="message" name="message" matInput type="text">
+            <button mat-button *ngIf="message" matSuffix mat-icon-button aria-label="Clear" (click)="message=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button (click)="sendMessage()" mat-mini-fab color="primary">
+            <mat-icon>send</mat-icon>
+          </button>
+    </div>
+</div>

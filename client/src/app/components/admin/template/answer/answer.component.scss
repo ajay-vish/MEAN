@@ -1,0 +1,8 @@
+.answer-container{
+    width: 55vw;
+    max-height: 60vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}::-webkit-scrollbar{
+    display: none;
+}

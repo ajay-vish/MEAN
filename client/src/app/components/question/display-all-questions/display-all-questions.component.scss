@@ -1,0 +1,40 @@
+.qcontainer{
+    background-color:rgb(221, 221, 221);
+    min-height: 92vh;
+    padding: 1rem;
+}
+.question {
+    padding-bottom: 10px;
+}
+
+.header{
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+
+}
+
+.spacer {
+    flex:1 1 auto;
+}
+
+.right{
+    float: right;
+}
+
+h2{
+    margin: 0;
+    margin-top: 5px;
+    font-weight: 100;
+}
+mat-form-field{
+    width: 200px;
+    margin-bottom: -15px;
+}
+
+mat-search-bar{
+    margin-top: 16px;
+    margin-left: 70px;
+}

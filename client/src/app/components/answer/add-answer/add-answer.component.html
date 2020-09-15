@@ -1,0 +1,32 @@
+<div class="edit-container">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Add answer</h4>
+            <p class="card-category">Fill the form</p>
+        </div>
+        <div class="card-body">
+            <form (submit) = "onAddAnswer()">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="form-group bmd-form-group">
+                    <app-question-template [question]='question'></app-question-template>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                <div class="form-group">
+                    <label>Enter your answer</label>
+                    <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating"></label>
+                    <textarea class="form-control" rows="10" [(ngModel)]="answer" name="answer"></textarea>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger pull-right">Add answer</button>
+            <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="followers-container">
+    <!-- <div class="row">
+        <div class="col-md-3">
+            <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+        </div>
+        <div class="col-md-7">
+            <div>
+                Lorem ipsum dolor sit amet.
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button mat-mini-fab>
+                <mat-icon>send</mat-icon>
+            </button>
+        </div>
+    </div> -->
+    <!-- <mat-nav-list>
+        <a mat-list-item>
+            <div class="row mat-list">
+                <div class="col-md-2">
+                    <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+                </div>
+                <div class="col-md-8">
+                    <span mat-line class="name">{{user.name}}</span>
+                    <span mat-line class="username">@{{user.username}}</span>
+                </div>
+                <div class="col-md-1">
+                    <button mat-mini-fab class="send">
+                        <mat-icon>send</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </a>
+    </mat-nav-list> -->
+    <button mat-button *ngFor ="let user of users;let i=index">
+        <div class="row mat-list">
+            <div class="col-md-2">
+                <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+            </div>
+            <div class="col-md-8">
+                <p class="name">{{user.name}}</p>
+                <p class="username">@{{user.username}}</p>
+            </div>
+            <div class="col-md-1">
+                <button *ngIf="!isSend[i]" mat-mini-fab class="send" color="primary" (click)='sendMessage(user, i)'>
+                    <mat-icon>send</mat-icon>
+                </button>
+                <button *ngIf="isSend[i]" mat-mini-fab class="send">
+                    <mat-icon>check</mat-icon>
+                </button>
+            </div>
+        </div>
+    </button>
+</div>

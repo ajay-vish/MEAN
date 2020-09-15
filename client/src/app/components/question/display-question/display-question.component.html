@@ -1,0 +1,11 @@
+<div class="question-container" *ngFor = "let question of ques">
+    <div>
+        <app-question-template [question]='question'></app-question-template>
+    </div>
+    <br>
+    <div *ngFor='let answers of question.answers;'>
+        <div *ngIf="answers.admin_action == 'Enabled'">
+            <app-answer-template  [answer] = 'answers'></app-answer-template>
+        </div>
+    </div>
+</div>

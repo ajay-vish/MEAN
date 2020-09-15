@@ -1,0 +1,11 @@
+<div class="question-container">
+    <div *ngFor = 'let question of questions'>
+        <p style='text-align: justify;'><strong>Question: </strong>{{question.question}}</p>
+        <p style='text-align: right; color:rgb(228, 89, 228)'>
+            Posted by <br>
+            {{question.user.name}} <br>
+            {{question.created_at | date: 'short'}}
+        </p>
+        <mat-divider></mat-divider>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+<div class="home-container">
+    <div class="title-box">
+      <h1><span>The</span> TechQues</h1>
+      <div class="title-border title-border-right"></div>
+      <div class="title-border title-border-left"></div>
+    </div>
+    <h2 class="text-center">For devlopers, by devlopers</h2>
+    <p class="author text-center">
+      by
+      <a href="https://github.com/ajay-vish">
+        Ajay Vishwakarma
+      </a>
+    </p>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+</div>
+<div class="cards">
+    <mat-card>
+        <mat-card-header><h1>Dashboard</h1></mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur <br>
+                adipisicing elit. Deserunt vero eius unde<br>
+                ab? Excepturi neque facilis rerum consequ<br>
+                untur nisi autem?
+            </p>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-raised-button color='accent' [routerLink]="['/dashboard']">View Dashboard</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card>
+        <mat-card-header><h1>Profile</h1></mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur <br>
+                adipisicing elit. Deserunt vero eius unde<br>
+                ab? Excepturi neque facilis rerum consequ<br>
+                untur nisi autem?
+            </p>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-raised-button color='primary' [routerLink]="['/profile/'+currentUser.id]">View Profile</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card>
+        <mat-card-header ><h1>View Questions</h1></mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur <br>
+                adipisicing elit. Deserunt vero eius unde<br>
+                ab? Excepturi neque facilis rerum consequ<br>
+                untur nisi autem?
+            </p>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-raised-button color='warn' [routerLink]="['/question']">View Questions</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="profile-cards">
+    <mat-card>
+        <mat-card-header>
+            <h1>Ajay Vishwakarma</h1>
+        </mat-card-header>
+        <mat-card-content style='text-align: justify;'>
+            <div class="row">
+                <div class="col-md-2">
+                    <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam optio
+                        dignissimos rem? Et blanditiis nulla optio dolorum omnis enim aut illo
+                        dicta placeat deleniti reiciendis doloremque voluptatibus quos, sint
+                        possimus non quaerat aspernatur. Eligendi iure aliquam animi aut,
+                        fugiat accusamus?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam optio
+                        dignissimos rem? Et blanditiis nulla optio dolorum omnis enim aut illo
+                        dicta placeat deleniti reiciendis doloremque voluptatibus quos, sint
+                        possimus non quaerat aspernatur. Eligendi iure aliquam animi aut,
+                        fugiat accusamus?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam optio
+                        dignissimos rem? Et blanditiis nulla optio dolorum omnis enim aut illo
+                        dicta placeat deleniti reiciendis doloremque voluptatibus quos, sint
+                        possimus non quaerat aspernatur. Eligendi iure aliquam animi aut,
+                        fugiat accusamus?
+                    </p>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="text-align: right; margin-right: 10px;">
+            <button mat-raised-button color='warn'>Follow Creator</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div class="hfooter">
+    <ul>
+      <a href="https://www.facebook.com/AjayRamharshVishwakarma/" target="_blank">
+          <li class="fa fa-facebook grow"></li>
+      </a>
+      <a href="https://twitter.com/Ajay_R_V" target="_blank">
+          <li class="fa fa-twitter grow"></li>
+      </a>
+      <a href="mailto:ajay.vish2212@email.com" target="_blank">
+          <li class="fa fa-google grow"></li>
+      </a>
+      <a href="https://github.com/ajay-vish" target="_blank">
+          <li class="fa fa-github grow"></li>
+      </a>
+      <a href="https://github.com/ajay-vish" target="_blank">
+          <li class="fa fa-codepen grow"></li>
+      </a>
+    </ul>
+</div>
+

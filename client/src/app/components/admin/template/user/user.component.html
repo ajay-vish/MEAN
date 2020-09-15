@@ -1,0 +1,11 @@
+<div class="user-container">
+    <div *ngFor = 'let user of users'>
+        <div class="flex-container">
+            <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+            <p>
+                {{user.name}}<br> @{{user.username}}
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="notifications-container">
+  <h2>Notifications</h2>
+  <mat-accordion>
+    <mat-expansion-panel 
+    *ngFor='let notification of notifications'
+    (opened)="panelOpenState = true" 
+    (closed)="panelOpenState = false"
+    (click) = 'onReadNotification(notification._id)'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{notification.second_user.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <p [ngClass]="notification.isRead ? 'read': 'not-read'">{{notification.notification}}</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div mat-dialog-close [routerLink]="['/question/'+notification.question._id]">
+        <p style="margin-top: 10px;"><strong>Question:</strong><br>&nbsp;    {{notification.question.question}}</p>
+        <p style="margin-bottom: -10px;"><strong>Answer:</strong><br>&nbsp;    {{notification.answer.answer}}</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

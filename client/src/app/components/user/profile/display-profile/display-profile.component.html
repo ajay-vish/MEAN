@@ -1,0 +1,112 @@
+
+<div class="grid">
+    <div class="image-container">
+      <img class="image-container" src="assets/images/ajay.jpg" alt="image">
+    </div>
+    <div class="profile-container">
+      <h1>{{user.name}}</h1>
+      <h5>{{user.specialization}}</h5>
+      <h4>Rating</h4>
+      <h3>&nbsp;3.6&nbsp;&nbsp;
+      </h3>
+      <bar-rating [rate]="faoRate" (rateChange)="onFaoRate($event)" [max]="5" theme="fontawesome-o"></bar-rating>
+      <button mat-button style="background-color:rgba(15, 255, 15, 0.253); color:rgb(4, 161, 4)" *ngIf='isFollowing && !isCurrentUser'  (click)="(like())">
+        <mat-icon>check_box</mat-icon> Following
+      </button>
+      <button mat-button *ngIf='!isFollowing && !isCurrentUser'  (click)="(like())">
+        <mat-icon>add_box</mat-icon> Follow
+      </button>
+      <button mat-button *ngIf='isCurrentUser' [routerLink]="['/profile']">
+        <mat-icon>create</mat-icon> Edit
+      </button>
+      <button mat-button *ngIf='!isCurrentUser' (click)="openDialog()">
+        <mat-icon>mode_comment</mat-icon> Message
+      </button>
+      <div *ngIf='!isCurrentUser'>
+        <button *ngIf = '!isReported' (click)='report()' mat-button class="report-user">
+          Report User
+        </button>
+        <button *ngIf = 'isReported' (click)='report()' mat-button class="report-user" color = "warn">
+          User Reported
+        </button>
+      </div>
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">person</mat-icon>
+            &nbsp;About
+          </ng-template>
+          <div class="info-container">
+            <div class="information">
+              <h4>CONTACT INFORMATION</h4>
+              <section class="info-grid">
+                <h3>Phone:</h3>
+                <h4>{{user.mobile}}</h4>
+                <h3>Address:<br></h3>
+                <h3>{{user.address.line}} {{user.address.city}} <br> {{user.address.country}} {{user.address.pincode}}</h3>
+                <h3>Email:</h3>
+                <h4>{{user.email}}</h4>
+                <h3>Site:</h3>
+                <h4>{{user.website}}</h4>
+              </section>
+  
+              <h4>BASIC INFORMATION</h4>
+              <section class="info-grid">
+                <div>
+                  <h3>Birthday:</h3>
+                  <h3>Gender:</h3>
+                </div>
+                <div>
+                  <h3>{{user.birthdate}}</h3>
+                  <h3>{{user.gender}}</h3>
+                </div>
+              </section>
+            </div>
+            <div class="information"></div>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">timeline</mat-icon>
+            &nbsp;Timeline
+          </ng-template>
+          <br>
+          <div style="overflow:scroll; height: 40vh; font-size:12px">
+            <div *ngFor='let questions of question'>
+            <app-question-template [question] = 'questions'></app-question-template>
+          </div>
+          <div *ngFor='let answers of answer'>
+            
+            <app-answer-template [answer] = 'answers'></app-answer-template>
+          </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="work-container">
+      <span class="right">WORK&nbsp;&nbsp;</span>
+      <div class="left"></div>
+      <section class="work">
+        <span>&nbsp;</span>
+        <h2>{{user.job.jobone.title}}<button mat-button>Current</button>
+        </h2>
+        <h4>{{user.job.jobone.description}}</h4>
+      </section>
+      <section class="work">
+        <div></div>
+        <h2>{{user.job.jobtwo.title}}<button mat-button>&nbsp;&nbsp;&nbsp;Last&nbsp;&nbsp;&nbsp;</button>
+        </h2>
+        <h4>{{user.job.jobtwo.description}}</h4>
+      </section>
+    </div>
+  
+    <div class="qualification-container">
+      <span class="right">SKILLS&nbsp;&nbsp;</span>
+      <div class="left"></div><br>
+      <section class="tags" >
+        <button *ngFor = 'let skills of user.skill' mat-stroked-button color="primary">{{skills.item_text}}</button>
+      </section>
+    </div>
+  </div>
+
+  

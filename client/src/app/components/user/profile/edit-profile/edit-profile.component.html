@@ -1,0 +1,193 @@
+<div class="edit-container">
+    <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Edit Profile</h4>
+          <p class="card-category">Complete your profile</p>
+        </div>
+        <div class="card-body">
+          <form (submit) = "updateProfile()">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>ID</mat-label>
+                    <input matInput [(ngModel)]="userdata._id" name="id" disabled="">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="userdata.username" name="username" disabled="">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="userdata.email" name="email">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="userdata.name" name="name">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput [(ngModel)]="userdata.mobile" name="mobile">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Specialization</mat-label>
+                    <input matInput [(ngModel)]="userdata.specialization" name="specialization">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput [(ngModel)]="userdata.address.line" name="address">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput [(ngModel)]="userdata.address.city" name="city">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input matInput [(ngModel)]="userdata.address.country" name="country">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Postal code</mat-label>
+                    <input matInput [(ngModel)]="userdata.address.pincode" name="pincode">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group bmd-form-group">
+                  <mat-form-field>
+                    <mat-label>Birthdate</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="userdata.birthdate" name="birthdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="form-group">
+                  <div class="form-group bmd-form-group">
+                    <mat-form-field>
+                      <mat-label>Gender</mat-label>
+                      <input matInput [(ngModel)]="userdata.gender" list="browsers" name="browser">
+                      <datalist id="browsers">
+                        <option value="Male">
+                        <option value="Female">
+                        <option value="Others">
+                      </datalist>
+                    </mat-form-field>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="form-group bmd-form-group">
+                    <mat-form-field>
+                      <mat-label>Website</mat-label>
+                      <input matInput [(ngModel)]="userdata.website" name="website">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="form-group">
+                  <div class="form-group bmd-form-group">
+                    <ng-multiselect-dropdown class="form=group"
+                        [settings]="dropdownSettings"
+                        [data]="dropdownList"
+                        [(ngModel)]="selectedItems"
+                        name = "selectedItems"
+                    >
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <mat-form-field>
+                        <mat-label>Job title (Primary)</mat-label>
+                        <input matInput [(ngModel)]="userdata.job.jobone.title" name="titleone">
+                      </mat-form-field>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <mat-form-field>
+                        <mat-label>Job title (Secondary)</mat-label>
+                        <input matInput [(ngModel)]="userdata.job.jobtwo.title" name="titletwo">
+                      </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Job Description (Primary)</label>
+                  <div class="form-group bmd-form-group">
+                    <mat-form-field>
+                      <mat-label>Tell us about your job</mat-label>
+                      <textarea matInput [(ngModel)]="userdata.job.jobone.description" name="descriptionone"></textarea>
+                    </mat-form-field>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Job Description (Secondary)</label>
+                  <div class="form-group bmd-form-group">
+                    <mat-form-field>
+                      <mat-label>Tell us about your job</mat-label>
+                      <textarea matInput [(ngModel)]="userdata.job.jobtwo.description" name="descriptiontwo"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>

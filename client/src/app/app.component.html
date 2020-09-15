@@ -1,0 +1,4 @@
+<navbar *ngIf="currentUser"></navbar>
+<app-login [hidden]="!myVar"></app-login>
+<app-admin-login *ngIf="router.url == '/admin/login'"></app-admin-login>
+<admin-navbar *ngIf='currentAdmin && !currentUser'></admin-navbar>

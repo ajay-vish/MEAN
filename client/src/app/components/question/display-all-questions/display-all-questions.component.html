@@ -1,0 +1,52 @@
+<div class="qcontainer">
+    <mat-card>
+        <mat-card-header>
+            <div class="row" style="width: 100%;">
+                <div class="col-md-9">
+                    <h2>
+                        Display Questions
+                    </h2>
+                </div>
+                <div class="col-md-1">
+                    <mat-search-bar [(ngModel)] = "search" (keydown)="onKeydown($event)"></mat-search-bar>
+                </div>
+                <div class="col-md-1">
+                    <mat-form-field>
+                        <mat-label>Filter</mat-label>
+                        <mat-select [(ngModel)] = "tagSearch" [formControl]="toppings" multiple>
+                            <mat-option *ngFor="let tag of tags" [value]="tag" (click)='tagFilter()'>
+                                {{tag}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-header>
+    </mat-card>
+    <div style="padding-bottom: 3.3rem; margin-top: 17px;">
+        <button mat-raised-button *ngIf = 'count'> Showing results {{count}}</button>
+        <button mat-raised-button class="right" 
+        color="primary" [routerLink]="['/addquestion']">
+        Add question
+    </button>
+    </div>
+    <mat-paginator 
+        (page)="onPageChange($event)"
+        [length]= 'items.length'
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    <div class="question" *ngFor="let question of data"> 
+        <div *ngIf="question.admin_action =='Enabled'">
+            <app-question-template [question]='question'>
+            </app-question-template>
+            <div *ngFor="let answer of question.answers; let i = index" >
+                <app-answer-template *ngIf = "answer.admin_action =='Enabled'" [answer]='answer'>
+                </app-answer-template>
+                <mat-card *ngIf = "1 == i" style="text-align: end;" [routerLink]="['/question/'+question._id]">
+                    Read more...
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

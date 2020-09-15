@@ -1,0 +1,7 @@
+.value-container{
+    max-height: 350px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}::-webkit-scrollbar{
+    display: none;
+}

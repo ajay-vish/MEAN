@@ -1,0 +1,52 @@
+.answer-container{
+    font-family: "Droid Sans", sans-serif;
+    font-size:14px;
+    width: 100%;
+}
+
+
+.header{
+    color: #fd9b14;
+    font-weight: 900;
+}
+mat-form-field{
+    width: 100%;
+}
+.user{
+    font-size: 14px;
+    margin: 0;
+}
+
+.btn-default {
+    background-color: rgba(0, 0, 0, 0.301);
+    text-align: center;
+    color: white;
+  
+}
+  
+.btn-change {
+    background-color: rgba(255, 0, 0, 0.301);
+    color: Red;
+}
+
+.More {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+mat-card-actions {
+    margin-bottom: -10px;
+}
+
+.centre {
+    width: 100%;
+    text-align: center;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+

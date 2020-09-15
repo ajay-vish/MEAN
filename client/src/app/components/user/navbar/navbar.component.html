@@ -1,0 +1,84 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="router.url != '/login'">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'slide' : 'side'" [opened]="(isHandset$ | async) === true">
+      <mat-toolbar (click)="drawer.toggle()"> </mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active" [routerLink]="['/home']">
+          <section class="nav-card">
+            <mat-icon>home</mat-icon>
+            <span *ngIf="drawer.opened">Home</span>
+            <span *ngIf="!drawer.opened">Home</span>
+          </section>
+        </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active" [routerLink]="['/dashboard']">
+          <section class="nav-card">
+            <mat-icon>dashboard</mat-icon>
+            <span *ngIf="drawer.opened">Dashboard</span>
+            <span *ngIf="!drawer.opened">Stats</span>
+          </section>
+        </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active" [routerLink]="['/profile']">
+          <section class="nav-card">
+            <mat-icon>account_circle</mat-icon>
+            <span *ngIf="drawer.opened">Profile</span>
+            <span *ngIf="!drawer.opened">User</span>
+          </section>
+        </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active" [routerLink]="['/question']">
+          <section class="nav-card">
+            <mat-icon>question_answer</mat-icon>
+            <span *ngIf="drawer.opened">Question</span>
+            <span *ngIf="!drawer.opened">Que</span>
+          </section>
+        </a>
+      </mat-nav-list>
+      <mat-nav-list >
+        <a mat-list-item routerLinkActive="active" [routerLink]="['/login']" (click)="onLogOut()">
+          <section class="nav-card">
+            <mat-icon>login</mat-icon>
+            <span *ngIf="drawer.opened">Log Out</span>
+            <span *ngIf="!drawer.opened">Out</span>
+          </section>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <span *ngIf="!drawer.opened" style="margin-left: 60px;"></span>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span >Welcome {{currentUser.username}}</span>
+        <span class="spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="notification">
+          <mat-icon [matBadge]="notification_count" [matBadgeHidden]="notification_count == 0" matBadgeColor="warn" MatBadgeSize='small'>notifications</mat-icon>
+        </button>
+        <mat-menu #notification="matMenu">
+          <div class = "notification-list" >
+            <div *ngFor='let notification of notifications; let i=index' >
+              <button mat-button *ngIf = "7 > i" (click)='onOpenNotification()'>
+                <p class = "notification-item" [ngClass]="notification.isRead ? 'read': 'not-read'">
+                  {{notification.second_user.username}} {{notification.notification}}
+                </p>
+              </button>
+            </div>
+          </div>
+          <p (click)='onOpenNotification()' class="read-more">Read more..</p>
+        </mat-menu>
+        <button mat-icon-button (click) = 'onOpenDialogue()'>
+          <mat-icon [matBadge]="message" [matBadgeHidden]="message == 0" matBadgeColor="accent" MatBadgeSize='small'>chat_bubble</mat-icon>
+        </button>
+      </mat-toolbar>
+      
+      <section [class.routergrid]="!drawer.opened">
+        <router-outlet></router-outlet>
+      </section>
+      <!-- Add Content Here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>

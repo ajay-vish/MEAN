@@ -1,0 +1,132 @@
+.question-container{
+    font-family: "Droid Sans", sans-serif;
+    font-size:14px;
+    text-align: justify;
+    width: 100%;
+}
+
+.header{
+    color: #ab47bc;
+    font-weight: 900;
+}
+
+#like{
+    font-size: 20px;
+}
+
+.btn-default {
+    background-color: rgba(0, 0, 0, 0.301);
+    text-align: center;
+    color: white;
+  
+}
+  
+.btn-change {
+    background-color: rgba(255, 0, 0, 0.301);
+    color: Red;
+}
+
+.user {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    background-color: rgba(199, 199, 199, 0.267);
+    border-radius: 2.5rem;
+    padding: 0.8rem;
+    vertical-align: centre;
+}
+
+.user:hover {
+    background-color: rgba(192, 192, 192, 0.603);
+}
+
+.img-container {
+    height: 50px;      
+    width: 50px;      
+    border-radius: 50%;   
+    background-repeat: no-repeat;        
+    background-size: 100%;
+}
+
+.timestamp {
+    font-size: 0.7rem;
+    color: grey;
+}
+
+.timestamp > p {
+    margin: 0;
+    margin-bottom:-5px ;
+}
+
+span{
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.answer{
+    border-radius: 50px;
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin: 0;
+    font-weight: 100;
+    color: rgb(150, 150, 150);
+}
+
+h2 {
+    font-size: 0.8rem;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    color: rgb(88, 88, 88);
+    font-weight: 400;
+}
+
+.menu-list {
+    font-size: 0.9rem !important;
+    margin: 0;
+}
+.menu-list-icon {
+    font-size: 1.2rem !important;
+    margin: 0;
+    margin-left: -5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.views {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    color: rgb(126, 126, 126);
+}
+
+
+mat-form-field{
+    width: 100%;
+}
+
+mat-card-actions {
+    margin-bottom: -10px;
+}
+
+.More {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.purple {
+    color: indigo;
+}
+
+.add-answer {
+    margin-right: -6px;
+}
+
+.create-button {
+    margin-top: 100%;
+}

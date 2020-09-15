@@ -1,0 +1,12 @@
+<div class="answer-container">
+    <div *ngFor = 'let answer of answers'>
+        <p><strong>Question: </strong>{{answer.question.question}}</p>
+        <p style='text-align: justify;'><strong>Answer: </strong>{{answer.answer}}</p>
+        <p style='text-align: right; color:rgb(228, 89, 228)'>
+            Posted by <br>
+            {{answer.user.name}} <br>
+            {{answer.created_at | date: 'short'}}
+        </p>
+        <mat-divider></mat-divider>
+    </div>
+</div>

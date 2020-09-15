@@ -1,0 +1,44 @@
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+  <form (submit)="onRegisterSubmit()">
+    <h1>Create Account</h1>
+    <div class="social-container">
+      
+    </div>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Name" required>
+    <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="Username" required>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" placeholder="E-mail" required>
+    <input type="text" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" required>
+    <button>SignUp</button>
+  </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form (submit)="onLoginSubmit()">
+      <h1>Sign In</h1>
+      <div class="social-container">
+      
+    </div>
+  
+    <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="username" required>
+    <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" required>
+    <a href="#">Forgot Your Password</a>
+  
+    <button>Sign In</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with us please login with your personal info</p>
+        <button class="ghost" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your details and start journey with us</p>
+        <button class="ghost" id="signUp" ng-click="left();" >Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>

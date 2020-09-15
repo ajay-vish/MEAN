@@ -1,0 +1,14 @@
+.notifications-container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 700px;
+    height: 600px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.not-read{
+    font-weight: 500;
+    color: rgb(44, 44, 44);
+}

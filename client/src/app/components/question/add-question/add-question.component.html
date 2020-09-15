@@ -1,0 +1,53 @@
+<div class="edit-container">
+    <div class="card">
+        <div class="card-header card-header-info">
+          <h1 class="card-title">Question</h1>
+          <p class="card-category">Add your question</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Enter your question</label>
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating"></label>
+                    <textarea class="form-control" rows="1" [(ngModel)]="question" name="question"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating"></label>
+                    <textarea class="form-control" rows="4" [(ngModel)]="description" name="description"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Enter the tags (Leave empty if none)</label>
+                  <div class="form-group bmd-form-group">
+                    <ng-multiselect-dropdown class="form=group"
+                        [settings]="dropdownSettings"
+                        [data]="dropdownList"
+                        [(ngModel)]="selectedItems"
+                        name = "selectedItems"
+                    >
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button (click)="onAddQuestion()" class="btn btn-info pull-right">Add question</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    

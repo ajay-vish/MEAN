@@ -1,0 +1,21 @@
+<div class = "message-list" >
+    <div *ngFor='let user of users; let i=index'>
+        <div class="row" mat-dialog-close (click) = 'openDialog(user_id,user.username,user.name)'>
+            <div class="col-md-2">
+                <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+            </div>
+            <div class="col">
+                <h2 [ngClass]="messages[i].user == user.username ? 'sender-name': 'receiver'">{{user.username}}</h2>
+                <p [ngClass]="currentUser.username == messages[i].user ? 'receiver': 'sender'" >
+                    {{messages[i].message}}
+                </p>
+            </div>
+            <div class="col">
+                <p class="timestamp" [ngClass]="currentUser.username == messages[i].user ? 'receiver': 'sender'">
+                    {{messages[i].created_at | date: 'hh:mm a'}}
+                </p>
+            </div>
+        </div>  
+        <mat-divider></mat-divider>
+    </div>
+</div>

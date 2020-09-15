@@ -1,0 +1,188 @@
+
+.left {
+    width: auto;
+    height: 14px;
+    border-bottom: 1px solid grey;
+    overflow: hidden;
+    opacity: 25%;
+      
+  }
+  .right {
+    font-size: 12 px;
+    color: rgba(128, 128, 128, 0.678);
+    float: left;
+  }
+  
+  .grid {
+    background-color: white;
+    box-sizing: border-box; 
+    padding: 50px 100px;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 250px 160px auto;
+    grid-template-areas: 'image profile' 'work profile'
+      'qualifications profile';
+    grid-column-gap: 3rem;
+    grid-row-gap: 1.5rem;
+  }
+  
+  .image-container {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    grid-area: image;
+  }
+  
+  .profile-container {
+    grid-area: profile;
+  }
+  
+  .profile-container > h1 {
+    margin-bottom: 10px !important;
+    font-size: 30px;
+  }
+  
+  .profile-container > h5 {
+    color: #673ab7;
+    font-weight: 100;
+    margin-bottom: 25px;
+  }
+  
+  .profile-container > h4 {
+    font-size: 14px;
+    color: grey;
+    vertical-align: bottom;
+    margin-bottom: 0px;
+  }
+  
+  p {
+    font-family: Lato;
+  }
+  .stars {
+    margin-top: 100px;
+  }
+  
+  .link {
+    margin-left: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #673ab7;
+  }
+  
+  .profile-container > h3 {
+    font-size: 16px;
+    vertical-align: bottom;
+    margin:0;
+  }
+  
+  .profile-container >  mat-icon {
+    font-size: 20px;
+    vertical-align: bottom;
+    color: #673ab7;
+    padding:0;
+    margin:0;
+  }
+  
+  .profile-container > .mat-button{
+    margin-bottom: 0px;
+  }
+  
+  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 80px!important;
+    padding: 3px!important;
+    margin: 3px!important;
+   }
+  
+  .report-user{
+    color: grey;
+    font-size: 12px;
+  }
+  
+  .info-container{
+    box-sizing: border-box;
+    padding-top: 20px;
+  }
+  
+  .information > h4 {
+    font-size: 12px;
+    color: grey;
+  
+  }
+  
+  .info-grid{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+  }
+  
+  .info-grid >  h4,h3{
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .info-grid >  h4{
+    color: #673ab7;
+  }
+  
+  .work-container {
+    grid-area: work;
+  }
+  
+  .work > div {
+    height: 5px;
+  }
+  .work > h2 {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  
+  .work > h2 > button{
+    background-color: #683ab759;
+    color: #673ab7;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+  
+  .work > h4 {
+    font-size: 12px;
+    color: grey;
+  }
+  
+  .work > h3 {
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+  
+  .tags > button {
+    margin-right: 10px;
+  } 
+
+  .qualification-container {
+    grid-area: qualifications;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+    .grid{
+      padding: 20px;
+      display: block;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+    .grid{
+      padding: 20px;
+      display: block;
+      border-radius: 0px;
+    }
+    .container{
+      padding: 0px;
+    }
+  }

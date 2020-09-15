@@ -1,0 +1,109 @@
+<mat-card class="question-container">
+    <mat-card-header *ngIf="router.url != '/dashboard'" >
+        &nbsp;  
+        <div class = "More">
+            <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <button mat-button (click)="copyMessage('http://localhost:4200/question/'+question._id)">
+                    <mat-icon class="menu-list-icon">content_copy</mat-icon><span class="menu-list">Copy</span>
+                </button>
+                <br>
+                <button mat-button *ngIf = 'isReported' (click)="report(question._id)">
+                    <mat-icon class="menu-list-icon" color = "primary">error</mat-icon><span class="menu-list purple">Reported</span>
+                </button>
+                <button mat-button *ngIf = '!isReported' (click)="report(question._id)">
+                    <mat-icon class="menu-list-icon">error</mat-icon><span class="menu-list">Report</span>
+                </button>
+                <br>
+                <button mat-button *ngIf = 'isCurrentUser' (click)="editQuestion()">
+                    <mat-icon class="menu-list-icon">create</mat-icon><span class="menu-list">Edit</span>
+                </button>
+            </mat-menu>
+        </div>
+    </mat-card-header>
+    <div class="row">
+        <div class="col-md-1" *ngIf="router.url != '/dashboard'">
+            <div style="text-align: center;">
+                <h1>{{question.likedby.length}}</h1>
+                <h2>Like</h2>
+                <h1>{{question.answers.length}}</h1>
+                <h2>Answer</h2>
+                <p class="views" *ngIf="question.watching.length == 1">{{question.watching.length}} Watcher</p>
+                <p class="views" *ngIf="question.watching.length > 1">{{question.watching.length}} Watchers</p>
+            </div>
+        </div>
+        <div class="col" [hidden] = 'isHidden'>
+            <button mat-stroked-button style='background-color: rgb(214, 214, 214);' *ngIf = "question.admin_action == 'Disable'">Disabled</button>
+            <button mat-button *ngIf = "question.admin_action == 'Disable'">Admin comment: {{question.admin_action_comment}}</button>
+            <mat-card-content>
+                <div [routerLink]="['/question/'+question._id]">
+                    <strong>Question:</strong>
+                    {{question.question}}
+                    <p><strong>Description:</strong> {{question.description}}</p>
+                </div>
+                <mat-chip-list
+                cdkDropList 
+                cdkDropListOrientation="horizontal"
+                (cdkDropListDropped)="drop($event)">
+                    <mat-chip
+                        color="primary"
+                        cdkDrag selected
+                        *ngFor='let tags of question.tags'>
+                        {{tags.item_text}}
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-card-content>
+            <mat-card-actions *ngIf="router.url != '/dashboard'">
+                &nbsp;<button mat-mini-fab matTooltip="Like" [ngClass]="[bntStyle]" (click)="like(question._id)"><mat-icon>favorite</mat-icon></button>&nbsp;
+                <button class="answer" mat-raised-button matTooltip="Add Answer" color="primary" [routerLink]="['/answer/'+question._id]">
+                    <span>{{question.answers.length}}</span>
+                    <mat-icon class="add-answer">add</mat-icon>
+                </button>&nbsp;
+                <button mat-mini-fab matTooltip="Stop watching this question" (click)="watch(question._id)" *ngIf = 'isWatching'>
+                    <mat-icon>turned_in</mat-icon>
+                </button>
+                <button mat-mini-fab matTooltip="Start watching this question" (click)="watch(question._id)" *ngIf = '!isWatching'>
+                    <mat-icon>turned_in_not</mat-icon>
+                </button>&nbsp;&nbsp;&nbsp;
+                <button class="btn-default" (click) = "openBottomSheet('http://localhost:4200/question/'+question._id)" mat-mini-fab matTooltip="Share" color="warn">
+                    <mat-icon>open_in_new</mat-icon>
+                </button>&nbsp;
+                <div class = "user"  [routerLink]="['/profile/'+question.user._id]">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div [ngStyle]="{'background-image':'url('+ url +')'}" class="img-container"></div>
+                        </div>
+                        <div class="col-md-9">
+                            <div>
+                                {{question.user.name}}
+                            </div>
+                            <div class = "timestamp">
+                                <p>Asked at</p>
+                                <p>{{question.created_at}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-actions>
+        </div>
+        <div class="col" [hidden] = '!isHidden'>
+            <mat-form-field>
+                <mat-label>Question</mat-label>
+                <textarea matInput [(ngModel)]="question.question" name=question matTextareaAutosize  matAutosizeMinRows=5></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput [(ngModel)]="question.description" name=question matTextareaAutosize  matAutosizeMinRows=5></textarea>
+                <div class="float-right">
+                  <button mat-mini-fab color="primary" (click) = 'updateQuestion()'><mat-icon>check</mat-icon></button>&nbsp;
+                  <button mat-mini-fab color="primary" (click) = 'closeQuestion()'><mat-icon>close</mat-icon></button>
+                </div>
+              </mat-form-field>
+        </div>
+        <div class="col-md-1" *ngIf="router.url == '/dashboard'" [hidden] = 'isHidden'>
+            <button mat-icon-button color="primary" (click) = 'editQuestion()' class="create-button">
+                <mat-icon >create</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-card>
