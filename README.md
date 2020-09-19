@@ -1,4 +1,4 @@
-# MEAN
+# TechQues
 
 Steps to run
 Client:
