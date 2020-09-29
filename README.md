@@ -1,14 +1,15 @@
 # TechQues
 
 Steps to run
-Client:
+
+- Client:
 
 1. Open client folder
 2. Open Windows Powershell
 3. Run command npm install
 4. Run command ng serve to host the Angular Front End. At port 4200
 
-Server:
+- Server:
 
 1. Open server folder
 2. Open Windows Powershell
